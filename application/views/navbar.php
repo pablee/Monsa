@@ -28,6 +28,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Historial</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index">Volver al catalogo</a>
+                </li>
             </ul>
 
             <ul class="navbar-nav ml-auto">

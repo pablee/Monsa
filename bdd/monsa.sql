@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-11-2017 a las 01:07:32
+-- Tiempo de generación: 11-02-2018 a las 18:41:38
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 7.1.1
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `lavalle`
+-- Base de datos: `monsa`
 --
 
 -- --------------------------------------------------------
@@ -28,10 +28,18 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `pedido` (
   `id` int(10) UNSIGNED NOT NULL,
+  `user_id` int(10) UNSIGNED NOT NULL,
   `sku` int(10) UNSIGNED NOT NULL,
   `cantidad` int(10) UNSIGNED NOT NULL,
   `fecha` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `pedido`
+--
+
+INSERT INTO `pedido` (`id`, `user_id`, `sku`, `cantidad`, `fecha`) VALUES
+(1, 1, 2000, 2, '2018-02-07');
 
 -- --------------------------------------------------------
 
@@ -135,7 +143,7 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id`, `nombre`, `apellido`, `mail`, `password`) VALUES
-(1, 'pablo', 'garcia', 'pgarcia@grimoldi.com', 'lavalle123');
+(1, 'admin', '', 'admin@monsa.com', 'monsa123');
 
 --
 -- Índices para tablas volcadas
@@ -175,12 +183,12 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `pedido`
 --
 ALTER TABLE `pedido`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de la tabla `suscripcion`
 --
 ALTER TABLE `suscripcion`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --

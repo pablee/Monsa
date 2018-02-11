@@ -4,31 +4,61 @@ include_once "Database.php";
 
 class Pedido
 {
-    public function listar()
+    public function listar($user_id)
     {
         $db=new database();
         $db->conectar();
 
         $consulta="SELECT *		
-			       FROM Pedido;";
+			       FROM Pedido
+			       WHERE user_id = ".$user_id.";";
 
         $resultado=mysqli_query($db->conexion, $consulta)
         or die ("No se pueden mostrar los pedidos.");
 
-        $productos = array(array("id", "sku", "cantidad", "fecha"));
+        $pedidos = array(array("id", "user_id", "sku", "cantidad", "fecha"));
         $i=0;
         while($datos = mysqli_fetch_assoc($resultado))
         {
-            $productos[$i]["id"]=$datos["id"];
-            $productos[$i]["sku"]=$datos["sku"];
-            $productos[$i]["cantidad"]=$datos["cantidad"];
-            $productos[$i]["fecha"]=$datos["fecha"];
+            $pedidos[$i]["id"]=$datos["id"];
+            $pedidos[$i]["user_id"]=$datos["user_id"];
+            $pedidos[$i]["sku"]=$datos["sku"];
+            $pedidos[$i]["cantidad"]=$datos["cantidad"];
+            $pedidos[$i]["fecha"]=$datos["fecha"];
             $i++;
         }
-        return $productos;
+        return $pedidos;
     }
 
-    
+
+    public function detalle($id)
+    {
+        $db=new database();
+        $db->conectar();
+
+        $consulta="SELECT *
+			       FROM Pedido
+			       WHERE id = ".$id.";";
+
+        $resultado=mysqli_query($db->conexion, $consulta)
+        or die ("No se pueden mostrar los pedidos.");
+
+        $detalles = array(array("id", "user_id", "sku", "cantidad", "fecha"));
+
+        $i=0;
+        while($datos = mysqli_fetch_assoc($resultado))
+        {
+            $detalles[$i]["id"]=$datos["id"];
+            $detalles[$i]["user_id"]=$datos["user_id"];
+            $detalles[$i]["sku"]=$datos["sku"];
+            $detalles[$i]["cantidad"]=$datos["cantidad"];
+            $detalles[$i]["fecha"]=$datos["fecha"];
+            $i++;
+        }
+        return $detalles;
+    }
+
+
     public function guardar($data)
     {
         $db=new database();

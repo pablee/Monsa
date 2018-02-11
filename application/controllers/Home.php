@@ -65,20 +65,62 @@ class Home extends CI_Controller {
     }
 
 
+    //Home
     public function inicio()
     {
         if($_SESSION["login"]==true)
         {
             $this->load->view('header');
             $this->load->view('navbar');
-            //$this->load->view('admin/nuevo_producto');
+            $this->load->view('home');
         }
         else{
             $this->load->view('logout');
         }
 
     }
-/*
+
+
+    //Listar pedidos historicos por usuario
+    public function historial()
+    {
+        //Recibe id de usuario.
+        $user_id = $this->input->get('user_id');
+        //Llamo al metodo de la clase que me devuelve el historial de pedidos.
+        $data['pedidos']=$this->pedido->listar($user_id);
+        $this->load->view('header');
+        $this->load->view('navbar');
+        //Envio a la vista historial los pedidos obtenidos en la consulta.
+        $this->load->view('headerTablaHistorial');
+        $this->load->view('historial',$data);
+        $this->load->view('footerTabla');
+    }
+
+
+    //Busca el detalle de un pedido.
+    public function detalle()
+    {
+        //Recibe id de pedido.
+        $id = $this->input->get('id');
+        //Llamo al metodo de la clase que me devuelve el detalle del pedido.
+        $data['detalles']=$this->pedido->detalle($id);
+        $this->load->view('header');
+        $this->load->view('navbar');
+        //Envio a la vista el detalle del pedido obtenido en la consulta.
+        $this->load->view('headerTablaDetalle');
+        $this->load->view('detalle',$data);
+        $this->load->view('footerTabla');
+    }
+
+
+    //Guarda los productos de un pedido.
+    public function guardar()
+    {
+
+    }
+
+
+    /*
 	public function enviar()
 	{
 		//Datos de contacto
@@ -105,40 +147,8 @@ class Home extends CI_Controller {
 	}
 
 
-    /*Listar por categoria
-    public function categoria()
-    {
-        $filtrado=array("rubro"=>"", "marca"=>"", "modelo"=>"");
-        $filtrado["rubro"]=$this->input->get('rubro');
+    /*
 
-        //Obtengo las marcas disponibles para la categoria.
-        $data['marcas']=$this->productos->filtrar_marcas($filtrado["rubro"]);
-        //Obtengo las marcas disponibles para la categoria.
-        $data['modelos']=$this->productos->filtrar_modelos($filtrado["rubro"]);
-
-        //Obtengo los productos de acuerdo a los filtros usados.
-        $data['productos']=$this->productos->listar_cat($filtrado["rubro"]);
-        $data['filtrado']=$filtrado;
-        $data['i']=0;
-        $data['form_action'] = "enviar";
-
-        $this->load->view('header');
-        $this->load->view('formularios/login',$data);
-        $this->load->view('formularios/contacto',$data);
-        $this->load->view('formularios/post_venta',$data);
-        $this->load->view('formularios/rrhh',$data);
-        $this->load->view('formularios/sucursales',$data);
-        $this->load->view('formularios/venta_corporativa',$data);
-        $this->load->view('formularios/comprar',$data);
-
-        $this->load->view('info/garantia');
-        $this->load->view('contacto');
-        $this->load->view('login');
-        $this->navbar();
-        $this->load->view('productos/listar',$data);
-        $this->load->view('nosotros');
-        $this->load->view('footer');
-    }
 
 
     public function filtrar()
