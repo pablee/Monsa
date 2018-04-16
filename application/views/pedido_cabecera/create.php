@@ -1,5 +1,3 @@
-<h2>Creación de Pedido Cabecera</h2>
-
 <?php echo validation_errors(); ?>
 
 <?php echo form_open('pedido_cabecera/create'); ?>
