@@ -1,17 +1,18 @@
 <?php
 class pedido_linea_model extends CI_Model 
 {
+	private $db_ci;
 
 	public function __construct()
 	{
-		$this->load->database();
+		$this->db_ci = $this->load->database('CodeIgniter', TRUE);
 	}
 		
 	public function get_pedido_lineas($id_pedido = FALSE)
 	{
         if ($id_pedido != FALSE)
         {
-			$query = $this->db->get_where('pedido_linea', array('id_pedido' => $id_pedido));//select * from pedido_linea where id_pedido = $id_pedido;
+			$query = $this->db_ci->get_where('pedido_linea', array('id_pedido' => $id_pedido));//select * from pedido_linea where id_pedido = $id_pedido;
 			return $query->result_array();
 		}
 	}
@@ -36,7 +37,7 @@ class pedido_linea_model extends CI_Model
 			'fec_ult_modif'=> getdate()
 		);
 
-		return $this->db->insert('pedido_cabecera', $data);
+		return $this->db_ci->insert('pedido_cabecera', $data);
 	}
 	
 	public function set_pedidos_lineas_sin_form($PedidoVentaId, $ArticuloId, $Cantidad)
@@ -44,15 +45,18 @@ class pedido_linea_model extends CI_Model
 
 		$data = array(
 			//'id_pedido_linea' => $this->input->post('id_pedido'), // es un autonumérico
-			'PedidoVentaId' => $PedidoVentaId,
+			'id_pedido' => $PedidoVentaId,
 			'ArticuloId' => $ArticuloId,
+			'ArticuloClave' => $ArticuloId,
+			//'Precio_unitario' => DEBO OBTENERLO DE LA BASE DE DATOS DEL ERP
 			'Cantidad' => $Cantidad
+			//'Precio_total' => DEBO CALCULARLO CON LO ANTERIOR
 		);
 
-		$result = $this->db->insert('pedido_linea', $data);
+		$result = $this->db_ci->insert('pedido_linea', $data);
 		if ($result == true)
 		{
-			return $this->db->insert_id();
+			return $this->db_ci->insert_id();
 		}
 		else
 		{

@@ -60,7 +60,7 @@ $route['facturasventa_ERP_by_empresa/(:any)'] = 'facturasventa_ERP/lista_by_empr
 $route['facturasventa_ERP'] = 'facturasventa_ERP';
 
 //PedidosVentaArticulos_ERP
-$rout['facturaventaitems_ERP_by_cabecera/(:any)'] = 'facturaventaitems_ERP/lista_by_cabecera/$1';
+$route['facturaventaitems_ERP_by_cabecera/(:any)'] = 'facturaventaitems_ERP/lista_by_cabecera/$1';
 
 //PedidosVenta_ERP
 $route['pedidosventa_ERP/(:any)'] = 'pedidosventa_ERP/solicitar_duplicado/$1';
@@ -69,7 +69,7 @@ $route['pedidosventa_ERP_by_empresa/(:any)'] = 'pedidosventa_ERP/lista_by_empres
 $route['pedidosventa_ERP'] = 'pedidosventa_ERP';
 
 //PedidosVentaArticulos_ERP
-$rout['pedidosventaarticulos_ERP_by_cabecera/(:any)'] = 'pedidosventaarticulos_ERP/lista_by_cabecera/$1';
+$route['pedidosventaarticulos_ERP_by_cabecera/(:any)'] = 'pedidosventaarticulos_ERP/lista_by_cabecera/$1';
 
 //CotizacionesVenta_ERP
 $route['cotizacionesventa_ERP/(:any)'] = 'cotizacionesventa_ERP/view/$1';

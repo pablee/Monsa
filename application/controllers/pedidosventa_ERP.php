@@ -77,7 +77,7 @@ class pedidosventa_ERP extends CI_Controller
 			show_404();
 		}
 		else
-		{
+		{			
 			//Cargamos los pedidos del ERP con el identificador
 			$data['lista_pedidosventa_ERP'] = $this->pedidosventa_ERP_model->get_by_id($id);
 			//Cargamos las líneas de pedido con el identificador
@@ -92,7 +92,9 @@ class pedidosventa_ERP extends CI_Controller
 		{
 			//Cargamos los modelos de nuestras tablas locales
 			$this->load->model('pedido_cabecera_model');
+			//echo 'Inicio de pedido_cabecera_model';//Ok
 			$this->load->model('pedido_linea_model');
+			//echo 'Inicio de pedido_linea_model';//OK
 			//Por cada pedido encontrado con éste identificador cargamos uno nuevo en nuestra base. Debería ser uno solo, pero es un array y lo manejamos así
 			foreach($data['lista_pedidosventa_ERP'] as $item_pedidoventa_ERP)
 			{
@@ -109,7 +111,11 @@ class pedidosventa_ERP extends CI_Controller
 					foreach($data['lista_pedidosventaarticulos_ERP'] as $item_pedidosventaarticulos_ERP)
 					{
 						//Cargo la información en variables locales
-						$PedidoId = $item_pedidosventaarticulos_ERP['PedidoVentaId'];
+						$PedidoId = $nuevo_id;
+						
+						//FALTA OBTENER EL ULTIMO RENGLÓN UTILIZADO PARA ÉSTE PEDIDO Y SUMARLE UNO PARA EL PRÓXIMO
+						//Renglon
+						
 						$ArticuloId = $item_pedidosventaarticulos_ERP['ArticuloId'];
 						$Cantidad = $item_pedidosventaarticulos_ERP['Cantidad'];
 						//Inserto la información por medio de una función del modelo que recibe parámetros. La función me devuelve el identificador del nuevo registro.
