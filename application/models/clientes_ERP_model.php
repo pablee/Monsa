@@ -1,22 +1,23 @@
 <?php
 class clientes_ERP_model extends CI_Model 
 {
+	private $db_mon;
 	
 	public function __construct()
 	{
-		$this->load->database('ERP');
+		$this->db_mon = $this->load->database('ERP');
 	}
 		
 	public function get_clientes_ERP($Id = FALSE)
 	{
         if ($Id === FALSE)
         {
-			$query = $this->db->get('clientes');
+			$query = $this->db_mon->get('clientes');
 			return $query->result_array();
 		}
 		
-		$query = $this->db->get_where('clientes', array('Id' => $Id));
-		//echo $this->db->get_compiled_select();
+		$query = $this->db_mon->get_where('clientes', array('Id' => $Id));
+		//echo $this->db_mon->get_compiled_select();
 		return $query->row_array();
 	}
 	

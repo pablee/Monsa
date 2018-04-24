@@ -90,6 +90,8 @@ $route['pedido_cabecera/create'] = 'pedido_cabecera/create';
 $route['pedido_cabecera/(:any)'] = 'pedido_cabecera/view/$1';
 $route['pedido_cabecera'] = 'pedido_cabecera';//Aquí se llama al index() de la clase en cuestión
 
+//localhost/Monsa/index.php/listado_empresas
+$route['listado_empresas'] = 'Empresas_ERP';
 
 $route['default_controller'] = 'pedido_cabecera';
 $route['404_override'] = '';
