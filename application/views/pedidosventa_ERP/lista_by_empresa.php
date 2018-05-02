@@ -9,7 +9,7 @@
 			Estado: <?php echo $item_pedidosventa_ERP['Estado']; ?>
 		</div>
 		<p><a href="<?php echo site_url('pedidosventa_ERP_by_id/'.$item_pedidosventa_ERP['Id']); ?>">Ver Pedido</a></p>
-		<p><a href="<?php echo site_url('pedidosventa_ERP/'.$item_pedidosventa_ERP['Id']; ?>">Solicitar nuevo pedido en base al presente</a></p>
+		<p><a href="<?php echo site_url('pedidosventa_ERP/'.$item_pedidosventa_ERP['Id']); ?>">Solicitar nuevo pedido en base al presente</a></p>
 
 	<?php endforeach; ?>
 <?php endif; ?>

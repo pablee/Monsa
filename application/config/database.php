@@ -75,7 +75,7 @@ $query_builder = TRUE;
 
 $db['SQL_2008'] = array(
 	'dsn'	=> '',
-	'hostname' => '192.168.204.196',
+	'hostname' => '192.168.204.191',
 	'username' => 'SISE',
 	'password' => 'SISE.2016',
 	'database' => 'GestionDigital',

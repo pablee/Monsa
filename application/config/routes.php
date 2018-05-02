@@ -93,7 +93,7 @@ $route['pedido_cabecera'] = 'pedido_cabecera';//Aquí se llama al index() de la 
 //localhost/Monsa/index.php/listado_empresas
 $route['listado_empresas'] = 'Empresas_ERP';
 
-$route['default_controller'] = 'pedido_cabecera';
+$route['default_controller'] = 'Principal_ERP';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 

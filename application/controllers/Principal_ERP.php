@@ -9,7 +9,7 @@ class Principal_ERP extends CI_Controller
 		$this->load->model('clientes_ERP_model');
 		$this->load->model('cotizacionesventa_ERP_model');
 		$this->load->model('pedidosventa_ERP_model');
-		//$this->load->model('empresas_ERP_model');
+		$this->load->model('facturasventa_ERP_model');
 		$this->load->helper('url_helper');
 	}
 
