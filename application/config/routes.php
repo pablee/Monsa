@@ -55,29 +55,29 @@ $route['Principal_ERP/(:any)'] = 'Principal_ERP/view/$1';
 $route['Principal_ERP'] = 'Principal_ERP';//Aquí se llama al index() de la clase en cuestión
 
 //FacturasVenta_ERP
-$route['facturasventa_ERP/(:any)'] = 'facturasventa_ERP/view/$1';
-$route['facturasventa_ERP_by_empresa/(:any)'] = 'facturasventa_ERP/lista_by_empresa/$1';
-$route['facturasventa_ERP'] = 'facturasventa_ERP';
+$route['facturasventa_ERP/(:any)'] = 'FacturasVenta_ERP/view/$1';
+$route['facturasventa_ERP_by_empresa/(:any)'] = 'FacturasVenta_ERP/lista_by_empresa/$1';
+$route['facturasventa_ERP'] = 'FacturasVenta_ERP';
 
 //PedidosVentaArticulos_ERP
-$route['facturaventaitems_ERP_by_cabecera/(:any)'] = 'facturaventaitems_ERP/lista_by_cabecera/$1';
+$route['facturaventaitems_ERP_by_cabecera/(:any)'] = 'FacturaVentaItems_ERP/lista_by_cabecera/$1';
 
 //PedidosVenta_ERP
-$route['pedidosventa_ERP/(:any)'] = 'pedidosventa_ERP/solicitar_duplicado/$1';
-$route['pedidosventa_ERP_by_id/(:any)'] = 'pedidosventa_ERP/view/$1';
-$route['pedidosventa_ERP_by_empresa/(:any)'] = 'pedidosventa_ERP/lista_by_empresa/$1';
-$route['pedidosventa_ERP'] = 'pedidosventa_ERP';
+$route['pedidosventa_ERP/(:any)'] = 'PedidosVenta_ERP/solicitar_duplicado/$1';
+$route['pedidosventa_ERP_by_id/(:any)'] = 'PedidosVenta_ERP/view/$1';
+$route['pedidosventa_ERP_by_empresa/(:any)'] = 'PedidosVenta_ERP/lista_by_empresa/$1';
+$route['pedidosventa_ERP'] = 'PedidosVenta_ERP';
 
 //PedidosVentaArticulos_ERP
-$route['pedidosventaarticulos_ERP_by_cabecera/(:any)'] = 'pedidosventaarticulos_ERP/lista_by_cabecera/$1';
+$route['pedidosventaarticulos_ERP_by_cabecera/(:any)'] = 'PedidosVentaArticulos_ERP/lista_by_cabecera/$1';
 
 //CotizacionesVenta_ERP
-$route['cotizacionesventa_ERP/(:any)'] = 'cotizacionesventa_ERP/view/$1';
-$route['cotizacionesventa_ERP_by_empresa/(:any)'] = 'cotizacionesventa_ERP/lista_by_empresa/$1';
-$route['cotizacionesventa_ERP'] = 'cotizacionesventa_ERP';//Aquí se llama al index() de la clase en cuestión
+$route['cotizacionesventa_ERP/(:any)'] = 'CotizacionesVenta_ERP/view/$1';
+$route['cotizacionesventa_ERP_by_empresa/(:any)'] = 'CotizacionesVenta_ERP/lista_by_empresa/$1';
+$route['cotizacionesventa_ERP'] = 'CotizacionesVenta_ERP';//Aquí se llama al index() de la clase en cuestión
 
 //CotizacionesVentaArticulos_ERP. No se necesita lógica para ésta clase porque depende de CotizacionesVenta_ERP.
-$route['cotizacionesventaarticulos_ERP_by_cabecera/(:any)'] = 'cotizacionesventaarticulos_ERP/lista_by_cabecera/$1';
+$route['cotizacionesventaarticulos_ERP_by_cabecera/(:any)'] = 'CotizacionesVentaArticulos_ERP/lista_by_cabecera/$1';
 
 $route['pedido_linea'] = 'pedido_cabecera';//Aquí se llama al index() de la clase en cuestión. Desde línea se llama al listado de pedidos.
 $route['pedido_linea/(:any)'] = 'pedido_linea/view/$1';

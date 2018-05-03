@@ -1,18 +1,18 @@
 <?php
-class cotizacionesventa_ERP extends CI_Controller 
+class CotizacionesVenta_ERP extends CI_Controller 
 {
 
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('cotizacionesventa_ERP_model');
-		$this->load->model('cotizacionesventaarticulos_ERP_model');
+		$this->load->model('CotizacionesVenta_ERP_model');
+		$this->load->model('CotizacionesVentaArticulos_ERP_model');
 		$this->load->helper('url_helper');
 	}
 
 	public function index()
 	{
-		$data['lista_cotizacionesventa_ERP'] = $this->cotizacionesventa_ERP_model->get_by_id();
+		$data['lista_cotizacionesventa_ERP'] = $this->CotizacionesVenta_ERP_model->get_by_id();
         $data['title'] = 'Todas las cotizaciones';
 
         $this->load->view('templates/header', $data);
@@ -29,7 +29,7 @@ class cotizacionesventa_ERP extends CI_Controller
 
 	public function lista_by_empresa($id = NULL)
 	{
-		$data['lista_cotizacionesventa_ERP'] = $this->cotizacionesventa_ERP_model->get_by_empresa($id);
+		$data['lista_cotizacionesventa_ERP'] = $this->CotizacionesVenta_ERP_model->get_by_empresa($id);
         $data['title'] = 'Cotizaciones de un cliente';
 		
 		if (!empty($data['lista_cotizacionesventa_ERP']))
@@ -45,12 +45,13 @@ class cotizacionesventa_ERP extends CI_Controller
 	public function view($id = NULL)
 	{
 		$data['title'] = 'Cotización puntual con sus líneas.';
-		$data['lista_cotizacionesventa_ERP'] = $this->cotizacionesventa_ERP_model->get_by_id($id);
-		$data['lista_cotizacionesventaarticulos_ERP'] = $this->cotizacionesventaarticulos_ERP_model->get_by_cabecera($id);
+		$data['lista_cotizacionesventa_ERP'] = $this->CotizacionesVenta_ERP_model->get_by_id($id);
+		$data['lista_cotizacionesventaarticulos_ERP'] = $this->CotizacionesVentaArticulos_ERP_model->get_by_cabecera($id);
 		
 		if (empty($data['lista_cotizacionesventa_ERP']))
 		{
-			show_404();
+			//show_404();
+			echo "no hay cotizaciones disponibles";
 		}
 		else
 		{

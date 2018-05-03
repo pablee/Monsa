@@ -12,11 +12,11 @@ class clientes_ERP_model extends CI_Model
 	{
         if ($Id === FALSE)
         {
-			$query = $this->db_mon->get('clientes');
+			$query = $this->db_mon->get('Clientes');
 			return $query->result_array();
 		}
 		
-		$query = $this->db_mon->get_where('clientes', array('Id' => $Id));
+		$query = $this->db_mon->get_where('Clientes', array('Id' => $Id));
 		//echo $this->db_mon->get_compiled_select();
 		return $query->row_array();
 	}

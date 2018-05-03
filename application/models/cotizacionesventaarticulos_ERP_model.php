@@ -1,5 +1,5 @@
 <?php
-class cotizacionesventaarticulos_ERP_model extends CI_Model 
+class CotizacionesVentaArticulos_ERP_model extends CI_Model 
 {
 	private $db_mon;
 
@@ -12,11 +12,11 @@ class cotizacionesventaarticulos_ERP_model extends CI_Model
 	{
         if ($id === FALSE)
         {
-			$query = $this->db_mon->get('cotizacionesventaarticulos');
+			$query = $this->db_mon->get('CotizacionesVentaArticulos');
 			return $query->result_array();
 		}
 		
-		$query = $this->db_mon->get_where('cotizacionesventaarticulos', array('id' => $id));
+		$query = $this->db_mon->get_where('CotizacionesVentaArticulos', array('Id' => $id));
 		//echo $this->db_mon->get_compiled_select();
 		return $query->result_array();
 	}
@@ -25,7 +25,7 @@ class cotizacionesventaarticulos_ERP_model extends CI_Model
 	{
 		if (!$id === FALSE)
 		{		
-			$query = $this->db_mon->get_where('cotizacionesventaarticulos', array('CotizacionVentaId' => $id));
+			$query = $this->db_mon->get_where('CotizacionesVentaArticulos', array('CotizacionVentaId' => $id));
 			//echo $this->db_mon->get_compiled_select();
 			return $query->result_array();
 		}
