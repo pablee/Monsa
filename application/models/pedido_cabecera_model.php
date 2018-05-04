@@ -7,7 +7,7 @@ class pedido_cabecera_model extends CI_Model
 	{
 		$this->db_ci = $this->load->database('CodeIgniter', TRUE);
 	}
-		
+
 	public function get_pedidos($id_pedido = FALSE)
 	{
         if ($id_pedido === FALSE)
@@ -70,6 +70,31 @@ class pedido_cabecera_model extends CI_Model
 		else
 		{
 			return $result;
+		}
+	}
+
+	public function get_prox_id()
+	{		
+		$this->db_ci->select_max('id_pedido', 'ult_id');
+		$query = $this->db->get('pedido_cabecera'); // Produces: SELECT MAX(id_pedido) as ult_id FROM pedido_cabecera
+		return $query->row_array();
+	}
+
+	public function get_id_temporal($cod_cliente = FALSE)
+	{
+		if ($cod_cliente === FALSE) 
+		{
+			echo 'no se puede continuar sin un código de cliente';
+		}
+		else
+		{
+			$this->db_ci->where('id_estado',1);
+			$this->db_ci->where('Clave_Cliente_ERP',$cod_cliente);
+			$query = $this->db_ci->get('pedido_cabcera');
+			//$query = $this->db_ci->get_where('pedido_cabecera', array('id_estado' => 1));
+			//select * from pedido_cabcera where id_pedido = $id_pedido;
+			//echo $this->db_ci->get_compiled_select();
+			return $query->row_array();
 		}
 	}
 }

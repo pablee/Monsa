@@ -1,5 +1,5 @@
 <?php
-class facturasventa_ERP_model extends CI_Model 
+class FacturasVenta_ERP_model extends CI_Model 
 {	
 	private $db_mon;
 
@@ -12,11 +12,11 @@ class facturasventa_ERP_model extends CI_Model
 	{
         if ($id === FALSE)
         {
-			$query = $this->db_mon->get('facturasventa');
+			$query = $this->db_mon->get('FacturasVenta');
 			return $query->result_array();
 		}
 		
-		$query = $this->db_mon->get_where('facturasventa', array('id' => $id));
+		$query = $this->db_mon->get_where('FacturasVenta', array('Id' => $id));
 		//echo $this->db_mon->get_compiled_select();
 		return $query->result_array();
 	}
@@ -25,11 +25,11 @@ class facturasventa_ERP_model extends CI_Model
 	{
 		if ($id === FALSE)
 		{
-			$query = $this->db_mon->get('facturasventa');
+			$query = $this->db_mon->get('FacturasVenta');
 			return $query->result_array();
 		}
 		
-		$query = $this->db_mon->get_where('facturasventa', array('EmpresaId' => $id));
+		$query = $this->db_mon->get_where('FacturasVenta', array('EmpresaId' => $id));
 		//echo $this->db_mon->get_compiled_select();
 		return $query->result_array();
 	}

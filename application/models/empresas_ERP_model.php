@@ -13,11 +13,11 @@ class empresas_ERP_model extends CI_Model
 	{
         if ($id === FALSE)
         {
-			$query = $this->db_mon->get('empresas');
+			$query = $this->db_mon->get('Empresas');
 			return $query->result_array();
 		}
 		
-		$query = $this->db_mon->get_where('empresas', array('Id' => $id));
+		$query = $this->db_mon->get_where('Empresas', array('Id' => $id));
 		//echo $this->db_mon->get_compiled_select();
 		return $query->row_array();
 	}

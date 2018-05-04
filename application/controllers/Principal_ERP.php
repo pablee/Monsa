@@ -11,6 +11,7 @@ class Principal_ERP extends CI_Controller
 		$this->load->model('PedidosVenta_ERP_model');
 		$this->load->model('FacturasVenta_ERP_model');
 		//$this->load->model('RemitosVenta_ERP_model');
+		$this->load->model('pedido_cabecera_model');
 		$this->load->helper('url_helper');
 	}
 
@@ -56,4 +57,29 @@ class Principal_ERP extends CI_Controller
 		
 		$this->load->view('templates/footer');
 	}
+
+	public function pedido_web ($cod_cliente = NULL, $sku = NULL, $cant = NULL)
+	{
+		if ($cod_cliente === NULL) 
+		{
+			echo 'Error no se tiene el código de cliente para continuar';
+		} 
+		else 
+		{
+			//Buscar un pedido temporal en la base de datos - Serían los pedidos con estado = 1.
+			$id_temporal = $this->pedido_cabecera_model->get_id_temporal();
+
+			//Si no existe un pedido temporal, lo creo
+			if ($id_temporal === NULL) 
+			{
+				$this->pedido_cabecera_model->set_pedidos_sin_form($cod_cliente, $fec_creacion);
+				$id_temporal = $this->pedido_cabecera_model->get_id_temporal();
+			}
+
+			//Si existe un pedido temporal lo utilizo
+			
+			//Agrego el producto en el pedido temporal
+		}
+	}
+
 }

@@ -50,6 +50,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 
+
+//FALTA CREAR LA FUNCIÓN EN EL CONTROLADOR QUE CORRESPONDA.
+//$route['????/(:num)/(:num)'] = '????/creacion_sin_form/$1/$2';//sku/cantidad
+
 //Principal_ERP
 $route['Principal_ERP/(:any)'] = 'Principal_ERP/view/$1';
 $route['Principal_ERP'] = 'Principal_ERP';//Aquí se llama al index() de la clase en cuestión

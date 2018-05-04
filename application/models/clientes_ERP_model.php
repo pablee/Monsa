@@ -1,5 +1,5 @@
 <?php
-class clientes_ERP_model extends CI_Model 
+class Clientes_ERP_model extends CI_Model 
 {
 	private $db_mon;
 	
