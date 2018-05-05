@@ -40,17 +40,14 @@ class pedido_linea_model extends CI_Model
 		return $this->db_ci->insert('pedido_cabecera', $data);
 	}
 	
-	public function set_pedidos_lineas_sin_form($PedidoVentaId, $ArticuloId, $Cantidad)
+	public function set_pedidos_lineas_sin_form($id_pedido, $SKU, $Cantidad)
 	{
 
 		$data = array(
-			//'id_pedido_linea' => $this->input->post('id_pedido'), // es un autonumérico
-			'id_pedido' => $PedidoVentaId,
-			'ArticuloId' => $ArticuloId,
-			'ArticuloClave' => $ArticuloId,
-			//'Precio_unitario' => DEBO OBTENERLO DE LA BASE DE DATOS DEL ERP
+			'id_pedido' => $id_pedido,
+			'Renglon' => 1,
+			'SKU' => $SKU,
 			'Cantidad' => $Cantidad
-			//'Precio_total' => DEBO CALCULARLO CON LO ANTERIOR
 		);
 
 		$result = $this->db_ci->insert('pedido_linea', $data);

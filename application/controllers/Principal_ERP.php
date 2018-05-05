@@ -12,6 +12,7 @@ class Principal_ERP extends CI_Controller
 		$this->load->model('FacturasVenta_ERP_model');
 		//$this->load->model('RemitosVenta_ERP_model');
 		$this->load->model('pedido_cabecera_model');
+		$this->load->model('pedido_linea_model');
 		$this->load->helper('url_helper');
 	}
 
@@ -58,27 +59,44 @@ class Principal_ERP extends CI_Controller
 		$this->load->view('templates/footer');
 	}
 
-	public function pedido_web ($cod_cliente = NULL, $sku = NULL, $cant = NULL)
+	public function set_pedido_web ($cod_cliente = FALSE, $SKU = FALSE, $Cantidad = FALSE)
 	{
-		if ($cod_cliente === NULL) 
+		if ($cod_cliente === FALSE) 
 		{
 			echo 'Error no se tiene el código de cliente para continuar';
 		} 
 		else 
 		{
-			//Buscar un pedido temporal en la base de datos - Serían los pedidos con estado = 1.
-			$id_temporal = $this->pedido_cabecera_model->get_id_temporal();
-
-			//Si no existe un pedido temporal, lo creo
-			if ($id_temporal === NULL) 
+			if ($SKU === FALSE) 
 			{
-				$this->pedido_cabecera_model->set_pedidos_sin_form($cod_cliente, $fec_creacion);
-				$id_temporal = $this->pedido_cabecera_model->get_id_temporal();
-			}
+				echo 'Error al recibir el código de producto';
+			} 
+			else 
+			{
+				//Buscar un pedido temporal en la base de datos - Serían los pedidos con estado = 1.
+				//Retorna FALSE si no recibe un código de cliente. NULL si no existe un pedido temporal para el cliente.
+				$pedido_temporal = $this->pedido_cabecera_model->get_id_temporal($cod_cliente);
 
-			//Si existe un pedido temporal lo utilizo
-			
-			//Agrego el producto en el pedido temporal
+				//Si no existe un pedido temporal, lo creo.
+				if ($pedido_temporal === NULL) 
+				{
+					//Mejorar la carga de una cabecera de pedido sin formulario para lo que sea necesario.
+					//Agregar id_estado, por defecto se inserta 1
+					//Agregar ...
+					$fec_creacion = '00-00-0000';
+					$this->pedido_cabecera_model->set_pedidos_sin_form($cod_cliente, $fec_creacion);
+					$pedido_temporal = $this->pedido_cabecera_model->get_id_temporal($cod_cliente);
+				}
+
+				//Habiendo creado un pedido temporal, lo utilizo.
+				$id_pedido = $pedido_temporal['id_pedido'];
+				//Agrego el producto en el pedido temporal
+				$this->pedido_linea_model->set_pedidos_lineas_sin_form($id_pedido, $SKU, $Cantidad);
+				
+
+				redirect('/pedido_cabecera/view/'.$id_pedido);
+
+			}
 		}
 	}
 

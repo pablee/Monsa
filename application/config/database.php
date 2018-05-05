@@ -73,9 +73,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $active_group = 'CodeIgniter';
 $query_builder = TRUE;
 
-$db['SQL_2008'] = array(
+$db['ERP'] = array(
 	'dsn'	=> '',
-	'hostname' => '192.168.204.191',
+	'hostname' => 'WIN-BONSAI\SQLEXPRESS2008',
 	'username' => 'SISE',
 	'password' => 'SISE.2016',
 	'database' => 'GestionDigital',
@@ -116,7 +116,7 @@ $db['CodeIgniter'] = array(
 	'failover' => array(),
 	'save_queries' => TRUE
 );
-
+/*
 $db['ERP'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
@@ -138,3 +138,5 @@ $db['ERP'] = array(
 	'failover' => array(),
 	'save_queries' => TRUE
 );
+
+*/

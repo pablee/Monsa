@@ -51,10 +51,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 
 
-//FALTA CREAR LA FUNCIÓN EN EL CONTROLADOR QUE CORRESPONDA.
-//$route['????/(:num)/(:num)'] = '????/creacion_sin_form/$1/$2';//sku/cantidad
+
 
 //Principal_ERP
+$route['set_pedido_web/(:any)/(:num)/(:num)'] = 'Principal_ERP/set_pedido_web/$1/$2/$3';//$cod_cliente/$SKU/$Cantidad
 $route['Principal_ERP/(:any)'] = 'Principal_ERP/view/$1';
 $route['Principal_ERP'] = 'Principal_ERP';//Aquí se llama al index() de la clase en cuestión
 
