@@ -1,10 +1,10 @@
-
+<h3> Cotizaciones de la Empresa </h3>
 <?php if (!empty($lista_cotizacionesventa_ERP)): ?>
 	<?php foreach ($lista_cotizacionesventa_ERP as $item_cotizacionesventa_ERP): ?>
 		<?php //echo var_dump($item_cotizacionesventa_ERP);?>
 		<div class="main">
-			Identificador: <?php echo $item_cotizacionesventa_ERP['Id']; ?><br/>
-			Cantidad de productos: <?php echo $item_cotizacionesventa_ERP['TotalItems']; ?><br/>
+			Id. Cotización: <?php echo $item_cotizacionesventa_ERP['Id']; ?><br/>
+			Cant. de prod.: <?php echo $item_cotizacionesventa_ERP['TotalItems']; ?><br/>
 			Importe total: <?php echo $item_cotizacionesventa_ERP['Total']; ?><br/>
 			Estado: <?php echo $item_cotizacionesventa_ERP['Estado']; ?>
 		</div>

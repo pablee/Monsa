@@ -1,6 +1,6 @@
 
-Identificador de Cotización: <?php echo $lista_pedidosventa_ERP[0]['Id'];?><br/>
-Identificador de Empresa: <?php echo $lista_pedidosventa_ERP[0]['EmpresaId'];?><br/>
+Id. de Empresa: <?php echo $lista_pedidosventa_ERP[0]['EmpresaId'];?><br/>
+Id. de Pedido: <?php echo $lista_pedidosventa_ERP[0]['Id'];?><br/>
 Fecha de creación: <?php echo $lista_pedidosventa_ERP[0]['Fecha'];?><br/><br/>
 
 

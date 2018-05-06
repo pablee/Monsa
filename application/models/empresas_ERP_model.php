@@ -11,6 +11,7 @@ class empresas_ERP_model extends CI_Model
 		
 	public function get_by_id($id = FALSE)
 	{
+		//var_dump($this->db_mon);
         if ($id === FALSE)
         {
 			$query = $this->db_mon->get('Empresas');

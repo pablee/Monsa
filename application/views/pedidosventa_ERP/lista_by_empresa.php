@@ -1,10 +1,10 @@
-
+<h3> Pedidos de la Empresa </h3>
 <?php if (!empty($lista_pedidosventa_ERP)): ?>
 	<?php foreach ($lista_pedidosventa_ERP as $item_pedidosventa_ERP): ?>
 		<?php //echo var_dump($item_pedidosventa_ERP);?>
 		<div class="main">
-			Identificador: <?php echo $item_pedidosventa_ERP['Id']; ?><br/>
-			Cantidad de productos: <?php echo $item_pedidosventa_ERP['TotalItems']; ?><br/>
+			Id. de pedido: <?php echo $item_pedidosventa_ERP['Id']; ?><br/>
+			Cant. de prod.: <?php echo $item_pedidosventa_ERP['TotalItems']; ?><br/>
 			Importe total: <?php echo $item_pedidosventa_ERP['Total']; ?><br/>
 			Estado: <?php echo $item_pedidosventa_ERP['Estado']; ?>
 		</div>
