@@ -2,10 +2,12 @@
 class pedido_linea_model extends CI_Model 
 {
 	private $db_ci;
+	private $Tabla;
 
 	public function __construct()
 	{
 		$this->db_ci = $this->load->database('CodeIgniter', TRUE);
+		$this->Tabla = 'pedido_linea';
 	}
 		
 	public function get_pedido_lineas($id_pedido = FALSE)

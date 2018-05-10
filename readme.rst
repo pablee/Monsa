@@ -1,3 +1,6 @@
+La entrada a la pantalla principal de la aplicación es mediante la dirección:
+http://monsaci.onmedia.com.ar/index.php/Principal_ERP/
+
 ###################
 What is CodeIgniter
 ###################

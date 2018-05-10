@@ -2,10 +2,12 @@
 class pedido_cabecera_model extends CI_Model 
 {
 	private $db_ci;
+	private $Tabla;
 
 	public function __construct()
 	{
 		$this->db_ci = $this->load->database('CodeIgniter', TRUE);
+		$this->Tabla = 'pedido_cabecera';
 	}
 
 	public function get_pedidos($id_pedido = FALSE)
